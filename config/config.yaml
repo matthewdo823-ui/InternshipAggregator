@@ -1,0 +1,357 @@
+# Job Scraper Configuration
+# Edit this file to switch niches, enable/disable sources, and configure output
+
+# ─── NICHE PROFILES ───────────────────────────────────────────────────────────
+# Set active_niche to one of the keys below, or create your own
+# CLI aliases: pm → product_management, eng → engineering, biz → business
+active_niche: engineering
+
+niches:
+  engineering:
+    industries:
+      mechanical:
+        enabled: true
+        keywords: ["mechanical engineer intern"]
+      electrical:
+        enabled: true
+        keywords: ["electrical engineer intern"]
+      civil:
+        enabled: true
+        keywords: ["civil engineer intern"]
+      aerospace:
+        enabled: true
+        keywords: ["aerospace engineer intern"]
+      industrial:
+        enabled: true
+        keywords: ["industrial engineer intern"]
+      software:
+        enabled: true
+        keywords: ["software engineer intern"]
+      general:
+        enabled: true
+        keywords: ["new grad engineer"]
+    job_types: ["internship", "co-op", "early-career", "new-grad", "full-time"]
+    degree_levels: ["bachelors", "masters"]
+    education_filter: true   # Favor student/early-career postings in descriptions
+
+  product_management:
+    industries:
+      product_manager:
+        enabled: true
+        keywords:
+          - "product manager intern"
+          - "associate product manager"
+          - "APM program"
+      product_analyst:
+        enabled: true
+        keywords: ["product analyst intern"]
+    job_types: ["internship", "co-op", "early-career", "new-grad", "full-time"]
+    education_filter: true
+
+  finance:
+    industries:
+      investment_banking:
+        enabled: true
+        keywords: ["investment banking analyst"]
+      equity_research:
+        enabled: true
+        keywords: ["equity research intern"]
+      quant:
+        enabled: true
+        keywords: ["quantitative analyst intern"]
+      general:
+        enabled: true
+        keywords: ["finance intern"]
+    job_types: ["internship", "co-op", "early-career", "new-grad", "full-time"]
+    education_filter: true
+
+  business:
+    # Short terms for Workday API search (full keywords still used for matching)
+    workday_search_keywords:
+      - "intern"
+      - "analyst intern"
+      - "business analyst intern"
+      - "marketing intern"
+      - "operations intern"
+      - "consulting intern"
+      - "sales intern"
+      - "supply chain intern"
+      - "accounting intern"
+      - "strategy intern"
+      - "finance intern"
+      - "co-op"
+      - "summer analyst"
+      - "leadership development"
+      - "HR intern"
+      - "business intern"
+      - "data analyst intern"
+      - "commercial intern"
+      - "rotational program"
+      - "business development intern"
+      - "product marketing intern"
+      - "revenue operations"
+      - "customer success intern"
+      - "project coordinator intern"
+      - "financial analyst intern"
+      - "procurement intern"
+      - "recruiting intern"
+      - "campus"
+      - "university"
+      - "graduate program"
+    workday_max_keywords: 30
+    workday_browse_all: true          # also pull full board and filter locally
+    workday_max_results_per_keyword: 200
+    indeed_max_results_per_keyword: 150
+    wellfound_max_pages: 5
+    industries:
+      business_analyst:
+        enabled: true
+        keywords:
+          - "business analyst intern"
+          - "business analytics intern"
+          - "business intelligence intern"
+          - "data analyst intern"
+          - "analyst intern"
+          - "summer analyst"
+      consulting:
+        enabled: true
+        keywords:
+          - "consulting intern"
+          - "management consulting analyst"
+          - "associate consultant intern"
+          - "strategy consulting intern"
+      strategy:
+        enabled: true
+        keywords:
+          - "strategy intern"
+          - "corporate strategy intern"
+          - "strategic planning intern"
+      operations:
+        enabled: true
+        keywords:
+          - "business operations intern"
+          - "operations analyst intern"
+          - "operations intern"
+          - "revenue operations intern"
+      business_development:
+        enabled: true
+        keywords:
+          - "business development intern"
+          - "partnerships intern"
+          - "corporate development intern"
+      marketing:
+        enabled: true
+        keywords:
+          - "marketing intern"
+          - "growth marketing intern"
+          - "product marketing intern"
+          - "brand marketing intern"
+          - "digital marketing intern"
+          - "content marketing intern"
+          - "social media intern"
+          - "communications intern"
+      sales:
+        enabled: true
+        keywords:
+          - "sales intern"
+          - "sales development representative intern"
+          - "account executive intern"
+          - "commercial intern"
+          - "business development representative"
+          - "account manager intern"
+          - "inside sales intern"
+      human_resources:
+        enabled: true
+        keywords:
+          - "HR intern"
+          - "human resources intern"
+          - "people operations intern"
+          - "talent acquisition intern"
+          - "recruiting intern"
+      supply_chain:
+        enabled: true
+        keywords:
+          - "supply chain intern"
+          - "logistics intern"
+          - "procurement intern"
+          - "inventory planning intern"
+      accounting:
+        enabled: true
+        keywords:
+          - "accounting intern"
+          - "audit intern"
+          - "tax intern"
+          - "financial analyst intern"
+      project_management:
+        enabled: true
+        keywords:
+          - "project management intern"
+          - "project coordinator intern"
+          - "program management intern"
+      customer_success:
+        enabled: true
+        keywords:
+          - "customer success intern"
+          - "client services intern"
+          - "account management intern"
+      general:
+        enabled: true
+        keywords:
+          - "business intern"
+          - "summer intern"
+          - "corporate intern"
+          - "management trainee"
+          - "rotational program"
+          - "leadership development program"
+          - "analyst program"
+          - "associate analyst"
+          - "university program"
+          - "campus program"
+          - "early career analyst"
+          - "early career associate"
+          - "graduate intern"
+          - "college intern"
+          - "student worker"
+          - "intern program"
+    job_types: ["internship", "co-op", "early-career", "new-grad"]
+    education_filter: true
+
+  general:
+    industries:
+      all:
+        enabled: true
+        keywords:
+          - "intern 2027"
+          - "new grad 2026"
+          - "entry level"
+          - "associate program"
+    job_types: ["internship", "co-op", "early-career", "new-grad", "full-time"]
+    education_filter: false
+
+# ─── SOURCES ──────────────────────────────────────────────────────────────────
+sources:
+  indeed:
+    enabled: true
+    delay_seconds: 2
+    max_results_per_keyword: 50
+
+  greenhouse:
+    enabled: true
+    delay_seconds: 1
+
+  lever:
+    enabled: true
+    delay_seconds: 1
+
+  ashby:
+    enabled: true
+    delay_seconds: 1
+    # https://jobs.ashbyhq.com/{slug}
+
+  workday:
+    enabled: true
+    delay_seconds: 1
+    max_results_per_keyword: 50
+    fetch_details: false   # set true for full descriptions (slower)
+    # https://{tenant}.{server}.myworkdayjobs.com/
+
+  jobright_github:
+    enabled: true
+    delay_seconds: 0
+    # https://github.com/jobright-ai/2026-Product-Management-Internship
+
+  simplify_github:
+    enabled: true
+    delay_seconds: 0
+    # https://github.com/SimplifyJobs/Summer2026-Internships
+
+  yc_jobs:
+    enabled: true
+    delay_seconds: 1
+    # https://www.workatastartup.com
+
+  wellfound:
+    enabled: false
+    delay_seconds: 2
+    max_pages: 2
+    use_playwright: true
+    headless: false          # false avoids DataDome blocks; needs a display (or xvfb-run on Linux)
+    headed_fallback: true    # if headless fails, retry with a visible browser window
+    warmup_homepage: false   # optional homepage visit before role pages
+    page_timeout_ms: 45000
+    page_wait_ms: 15000
+    # storage_state: config/wellfound_auth.json  # optional Playwright saved cookies
+    # Setup: pip install playwright && python -m playwright install chromium
+
+  linkedin:
+    enabled: false
+    delay_seconds: 5
+
+# ─── OUTPUT ───────────────────────────────────────────────────────────────────
+output:
+  format: csv
+  filename: jobs_output.csv   # Written to output/jobs_output.csv by default
+
+  columns:
+    - title
+    - company
+    - location
+    - department
+    - type
+    - date_posted
+    - apply_url
+    - source
+    - niche
+    - id
+
+# ─── FILTERS ──────────────────────────────────────────────────────────────────
+filters:
+  location: "United States"
+  exclude_keywords:
+    - "senior"
+    - "staff"
+    - "principal"
+    - "director"
+  posted_within_days: 30   # Drop jobs older than this when date is known; keep if date unknown
+
+  # Toggle engineering sub-disciplines / niche industry groups (all true = include all)
+  # Only applies when the active niche defines an `industries` section above.
+  industries:
+    mechanical: true
+    electrical: true
+    civil: true
+    aerospace: true
+    industrial: true
+    software: true
+    general: true
+    product_manager: true
+    product_analyst: true
+    investment_banking: true
+    equity_research: true
+    quant: true
+    business_analyst: true
+    consulting: true
+    strategy: true
+    operations: true
+    business_development: true
+    marketing: true
+    sales: true
+    human_resources: true
+    supply_chain: true
+    accounting: true
+    project_management: true
+    customer_success: true
+    all: true
+
+  # Toggle startup vs Fortune 500 sources/companies (both true = include both)
+  company_types:
+    startups: true
+    fortune_500: true
+
+# ─── EMAIL AUTOMATION ─────────────────────────────────────────────────────────
+email:
+  enabled: false
+  sender_email: "you@gmail.com"
+  subject: "Your 2027 Engineering Internship List 🚀"
+  resource_url: "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID"
+  gmail_credentials: "config/gmail_credentials.json"
