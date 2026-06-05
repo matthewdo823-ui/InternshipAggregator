@@ -1,4 +1,4 @@
-# Job Scraper — LinkedIn Lead Magnet Engine
+# Job Scraper LinkedIn Lead Magnet Engine
 
 Scrapes job listings from multiple sources, deduplicates them, and outputs a CSV you can publish as a Google Sheet. Pair with the email sender to automatically send your resource to LinkedIn commenters.
 
